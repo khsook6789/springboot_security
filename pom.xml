@@ -16,7 +16,7 @@
     <description>Spring Security 학습용 미니 프로젝트 (DB 없음, Postman 테스트)</description>
 
     <properties>
-        <java.version>21</java.version>
+        <java.version>17</java.version>
     </properties>
 
     <dependencies>

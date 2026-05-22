@@ -98,7 +98,7 @@ public class SecurityConfig {
         http.authorizeHttpRequests(auth -> auth
             .requestMatchers("/public/**").permitAll()       // 인증 없이 허용
             .requestMatchers("/admin/**").hasRole("ADMIN")   // ADMIN 역할만 허용
-            .anyRequest()                    // 나머지는 로그인 필요
+            .anyRequest().authenticated()                    // 나머지는 로그인 필요
         );
 
         // [1-2] 인증 방식 - HTTP Basic Auth (Postman Authorization 탭 → Basic Auth)
