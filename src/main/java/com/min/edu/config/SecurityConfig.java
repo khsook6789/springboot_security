@@ -108,6 +108,12 @@ public class SecurityConfig {
 //        http.csrf(csrf -> csrf.disable());
 //
 //        return http.build();
+    	
+    	http.authorizeHttpRequests(auth -> auth
+    		.requestMatchers("/public/**").permitAll()
+    		);
+    	
+    	return http.build();
     }
 
 }
