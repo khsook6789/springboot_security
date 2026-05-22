@@ -94,26 +94,20 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
-//        // [1-1] URL별 접근 권한 설정
-//        http.authorizeHttpRequests(auth -> auth
-//            .requestMatchers("/public/**").permitAll()       // 인증 없이 허용
-//            .requestMatchers("/admin/**").hasRole("ADMIN")   // ADMIN 역할만 허용
-//            .anyRequest().authenticated()                    // 나머지는 로그인 필요
-//        );
-//
-//        // [1-2] 인증 방식 - HTTP Basic Auth (Postman Authorization 탭 → Basic Auth)
-//        http.httpBasic(Customizer.withDefaults());
-//
-//        // [1-3] CSRF 비활성화 - Postman POST 테스트 시 CSRF 토큰 없어서 403 발생 방지
-//        http.csrf(csrf -> csrf.disable());
-//
-//        return http.build();
-    	
-    	http.authorizeHttpRequests(auth -> auth
-    		.requestMatchers("/public/**").permitAll()
-    		);
-    	
-    	return http.build();
+        // [1-1] URL별 접근 권한 설정
+        http.authorizeHttpRequests(auth -> auth
+            .requestMatchers("/public/**").permitAll()       // 인증 없이 허용
+            .requestMatchers("/admin/**").hasRole("ADMIN")   // ADMIN 역할만 허용
+            .anyRequest().authenticated()                    // 나머지는 로그인 필요
+        );
+
+        // [1-2] 인증 방식 - HTTP Basic Auth (Postman Authorization 탭 → Basic Auth)
+        http.httpBasic(Customizer.withDefaults());
+
+        // [1-3] CSRF 비활성화 - Postman POST 테스트 시 CSRF 토큰 없어서 403 발생 방지
+        http.csrf(csrf -> csrf.disable());
+
+        return http.build();
     }
 
 }
