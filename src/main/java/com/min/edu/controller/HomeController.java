@@ -2,6 +2,7 @@ package com.min.edu.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
@@ -43,19 +44,19 @@ public class HomeController {
     // 누구나 접근 가능
     @GetMapping("/public/hello")
     public ResponseEntity<String> publicHello() {
-        return ResponseEntity.ok("공개 영역입니다. 인증 없이 접근 가능합니다.");
+        return ResponseEntity.ok("공개 영역입니다!");
     }
 
     // 로그인한 사용자만 접근 가능
     @GetMapping("/private/hello")
     public ResponseEntity<String> privateHello(Principal principal) {
-        return ResponseEntity.ok("비공개 영역입니다. 현재 로그인 사용자: " + principal.getName());
+        return ResponseEntity.ok("비공개 영역입니다! 현재 로그인 사용자: " + principal.getName());
     }
 
     // ADMIN 역할만 접근 가능
     @GetMapping("/admin/hello")
     public ResponseEntity<String> adminHello(Principal principal) {
-        return ResponseEntity.ok("관리자 영역입니다. 현재 로그인 사용자: " + principal.getName());
+        return ResponseEntity.ok("관리자 영역입니다! 현재 로그인 사용자: " + principal.getName());
     }
 
 }

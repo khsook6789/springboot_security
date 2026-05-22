@@ -91,9 +91,9 @@ public class SecurityConfig {
     // 아래에 학습용으로 SecurityConfig 작성해보기
     // 아래 예시 내용 지우고 자유롭게 해보면 됨
 
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-
+//    @Bean
+//    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+//
 //        // [1-1] URL별 접근 권한 설정
 //        http.authorizeHttpRequests(auth -> auth
 //            .requestMatchers("/public/**").permitAll()       // 인증 없이 허용
@@ -108,6 +108,6 @@ public class SecurityConfig {
 //        http.csrf(csrf -> csrf.disable());
 //
 //        return http.build();
-    }
+//    }
 
 }
