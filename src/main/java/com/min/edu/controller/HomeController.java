@@ -44,7 +44,7 @@ public class HomeController {
     // 누구나 접근 가능
     @GetMapping("/public/hello")
     public ResponseEntity<String> publicHello() {
-        return ResponseEntity.ok("공개 영역입니다!");
+        return ResponseEntity.ok("공개 영역이다. 인증 없이 접근 가능합니다.");
     }
 
     // 로그인한 사용자만 접근 가능
