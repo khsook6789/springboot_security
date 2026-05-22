@@ -105,7 +105,7 @@ public class SecurityConfig {
         http.httpBasic(Customizer.withDefaults());
 
         // [1-3] CSRF 비활성화 - Postman POST 테스트 시 CSRF 토큰 없어서 403 발생 방지
-//        http.csrf(csrf -> csrf.disable());
+        http.csrf(csrf -> csrf.disable());
 
         return http.build();
     }
